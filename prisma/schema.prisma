@@ -1,0 +1,110 @@
+// This is your Prisma schema file
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Kamoku {
+  kamokuCd      Int      @id
+  kamokuName    String
+  kamokuGrpCd   Int
+  kamokuGrpName String
+  kariKubun     Boolean
+  kashiKubun    Boolean
+  createdAt     DateTime @default(now())
+}
+
+model KamokuGrp {
+  kamokuGrpCd   Int      @id
+  kamokuGrpName String
+  kariKubun     Boolean
+  kashiKunbu    Boolean
+  createdAt     DateTime @default(now())
+}
+
+model TorihikiPtn {
+  torihikiPtnCd Int      @id
+  torihikiName  String
+  kariGrpCd     Int
+  kariGrpName   String
+  kariKubun     Boolean
+  kashiGrpCd    Int
+  kashiGrpName  String
+  kashiKubun    Boolean
+  createdAt     DateTime @default(now())
+}
+
+model ShiwakePtn {
+  shiwakePtn    Int      @id
+  shiwakeName   String
+  kariCd        Int
+  kariName      String
+  kariKingaku   Int
+  kamokuGrpCd   Int
+  kamokuGrpName String
+  kariKubun     Boolean
+  kashiCd       Int
+  kashiName     String
+  kashiKingaku  Int
+  kashiGrpCd    Int
+  kashiGrpName  String
+  kashiKubun    Boolean
+  hasseiDate    DateTime
+  createdAt     DateTime @default(now())
+}
+
+model Shiwake {
+  id            Int      @id @default(autoincrement())
+  torihikiPtnCd Int?
+  torihikiName  String?
+  kariCd        Int
+  kariName      String
+  kariKingaku   Int?
+  kariGrpCd     Int?
+  kariGrpName   String?
+  kariKubun     Boolean?
+  kashiCd       Int
+  kashiName     String
+  kashiKingaku  Int?
+  kashiGrpCd    Int?
+  kashiGrpName  String?
+  kashiKubun    Boolean?
+  tekiyou       String?
+  hasseiDate    DateTime
+  createdAt     DateTime @default(now())
+  user          User     @relation(fields: [userId], references: [id])
+  userId        Int
+}
+
+model Seisanhyou {
+  id            Int      @id @default(autoincrement())
+  kamokuGrpCd   Int
+  kamokuGrpName String
+  kamokuCd      Int
+  kamokuName    String
+  kingaku       Int
+  kariKubun     Boolean
+  kashiKubun    Boolean
+  nendo         Int
+  updatedAt     DateTime
+  createdAt     DateTime @default(now())
+  user          User     @relation(fields: [userId], references: [id])
+  userId        Int
+}
+
+model User {
+  id         Int          @id @default(autoincrement())
+  mail       String       @unique
+  userName   String
+  password   String
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  Shiwake    Shiwake[]
+  Seisanhyou Seisanhyou[]
+}

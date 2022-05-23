@@ -1,0 +1,183 @@
+{
+  "shiwakeCreateArgs":{   
+    "torihikiPtnCd": 1,
+    "torihikiName": "費用登録",
+    "kariCd":        101,
+    "kariName": "仕入",   
+    "kariKingaku":  10000, 
+    "kariGrpCd":     10,
+    "kariGrpName":  "費用", 
+    "kariKubun":    true, 
+    "kashiCd":      801, 
+    "kashiName":    "事業主貸",
+    "kashiKingaku": 10000, 
+    "kashiGrpCd":   8, 
+    "kashiGrpName": "資産", 
+    "kashiKubun":   true, 
+    "tekiyou":      "テスト", 
+    "hasseiDate":   "2022-01-01T13:50:40+09:00", 
+    "userId":       1  }
+}
+
+mutation shiwakeCreate ($shiwakeCreateArgs:ShiwakeCreateArgs) {
+  shiwakeCreate(input:$shiwakeCreateArgs) {
+      shiwake {
+        kariName
+      }
+    }
+}
+
+/////////////////////////////////////////////
+mutation signup($userInput:UserCreateArgs){
+  signup(input:$userInput) {
+    userErrors {
+      message
+    } 
+    user {
+      userName
+      mail
+      password
+    }
+  } 
+}
+{
+  "userInput":{"userName":"nono",
+"mail":"nono@uso.com",
+"password":"password"}
+}
+/////////////////////////////////////////////coco`s token
+{
+  "data": {
+    "signup": {
+      "userErrors": [],
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIwLCJtYWlsIjoiY29jb0B1c28uY29tIiwiaWF0IjoxNjQ5NTM3NDE4LCJleHAiOjE2NTMxMzc0MTh9.TOVVZekFGOUGL3O2BXHHX5uO-MO13kVNOSobMOTF1tQ"
+    }
+  }
+}
+
+/////////////////////////////////////////////5/5
+mutation ShiwakeCreate($input: ShiwakeCreateArgs) {
+  shiwakeCreate(input: $input) {
+    userErrors {
+      message
+    }
+}
+}
+
+//////////////////////////////////////coso token
+"yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJpYXQiOjE2NTE3MzAyOTQsImV4cCI6MTY1NTMzMDI5NH0.4mwyQbIQPb8u24CM7fA5DwMoaQArmMJrt_wiAa52_UY"
+
+////////////////////////////////////成功したクエリ
+mutation Signin($credentials: CredentialsInput) {
+  signin(credentials: $credentials) {
+    token 
+  }
+}
+////////////////////////上のvariables
+{
+  "credentials": {
+    "mail": "soso@uso.com",
+    "password": "password"
+
+
+  }
+}
+
+////////////////////////////////////上の　soso token
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJpYXQiOjE2NTE3MzIwNjAsImV4cCI6MTY1NTMzMjA2MH0.MtbSvgLoKzWXzAOKwiv2B2XCHvl8yiLh40wRqb7Izic"
+
+//////////////////////////////////////userIdをハードコーディング（userId:１　とした）して以下のmutationを実行
+＞＞＞＞＞＞＞＞＞＞＞＞＞＞＞＞＞＞＞うまく行った
+mutation ShiwakeCreate($input: ShiwakeCreateArgs) {
+  shiwakeCreate(input: $input) {
+    userErrors {
+      message
+    }
+  }
+}
+
+//////////////////////////////////////上でいけた時に使ったinput
+{ "input":{
+    "torihikiPtnCd": 1,
+    "torihikiName": "費用登録",
+    "kariCd":        101,
+    "kariName": "仕入",   
+    "kariKingaku":  10000, 
+    "kariGrpCd":     10,
+    "kariGrpName":  "費用", 
+    "kariKubun":    true, 
+    "kashiCd":      801, 
+    "kashiName":    "事業主貸",
+    "kashiKingaku": 10000, 
+    "kashiGrpCd":   8, 
+    "kashiGrpName": "資産", 
+    "kashiKubun":   true, 
+    "tekiyou":      "テスト", 
+    "hasseiDate":   "2022-01-01T13:50:40+09:00", 
+}}
+
+/////////////////////////////////////整理された仕分け登録クエリ 5/6
+ mutation ShiwakeCreate($input: ShiwakeCreateArgs) {
+    shiwakeCreate(input: $input) {
+    userErrors {
+      message
+    }
+    }
+    }
+
+////////////////////////////////////上のクエリで使ったinput
+{ "input":{
+    "kariCd": 101,
+    "kariName": "仕入",   
+    "kariKingaku":  10000, 
+    "kashiCd":      801, 
+    "kashiName":    "事業主貸",
+    "kashiKingaku": 10000, 
+    "tekiyou":      "テスト", 
+    "hasseiDate":   "2022-01-01T13:50:40+09:00", 
+}}
+
+////////////////////////////////////////5/11 8:40 使ったToken のちに（5/13）クライアントアクセス成功 user:25
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJpYXQiOjE2NTIxNTQ0MzUsImV4cCI6MTY1NTc1NDQzNX0.nAkGAiHpP9ZH80zqeTHm-Kmpq9QGo2QH2aVo8iNy9uM"
+////////////////////////////////////////5/13 9:09 クライアントアクセス成功 user:23
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJpYXQiOjE2NTI0MDAwNTYsImV4cCI6MTY1NjAwMDA1Nn0.2hY4gpW4C-4tZeXZBG7j1JEW67FOymHlL2NcoP2zKmc
+
+////////////////////////////////5/18　ユーザー新規登録クエリ
+mutation signup($input:CredentialsInput, $userName: String){
+  signup(credentials:$input, userName: $userName) {
+    userErrors {
+      message
+    } 
+ token
+  } 
+}
+///////////////////////////////上で使ったクエリの入力値
+{
+  "input":{
+    "mail":"nono@uso.com",
+    "password": "password"
+},
+"userName": "todo"
+
+}
+
+//////////////////////////5/19 ShiwakeDelete（たぶん）
+mutation shiwakeDelete($input:ID){
+  shiwakeDelete(shiwakeId:$input,)  {
+    userErrors {
+      message
+    } 
+  } 
+}
+///////////////////////////////
+{
+  "input":"29"
+} 
+
+//////////////////////上のvariables
+{
+  "input":"29"
+}
+
+/////////////////////////本日5・19のトークン
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJpYXQiOjE2NTI5MTkyNTIsImV4cCI6MTY1NjUxOTI1Mn0.WTzUeW0IvGYKc_nfhkADAe9yV_U7xwtUlRMCByZy2gg"
