@@ -2,7 +2,10 @@ import { Context } from "../../index"
 import validator from "validator"
 import bcrypt from "bcryptjs"
 import JWT from "jsonwebtoken"
-import { JSON_SIGNATURE } from "../../keys"
+// import { JSON_SIGNATURE } from "../../keys"
+require('dotenv').config()
+const env = process.env
+const JSON_SIGNATURE: any = env.JSON_SIGNATURE
 
 interface SignupArgs {
     credentials: {
