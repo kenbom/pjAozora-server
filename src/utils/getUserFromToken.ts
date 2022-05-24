@@ -1,6 +1,9 @@
 import JWT from "jsonwebtoken"
-import { JSON_SIGNATURE } from "../keys"
-
+// import { JSON_SIGNATURE } from "../keys"
+//JSON_SIGNATURE = env("JSON_SIGNATURE")
+require('dotenv').config()
+const env = process.env
+const JSON_SIGNATURE:any = env.JSON_SIGNATURE
 export const getUserFromToken = (token: string) => {
     console.log(`aferReceiveFromIndex:${token}`)
     try {
