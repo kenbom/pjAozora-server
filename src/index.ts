@@ -11,7 +11,7 @@ export interface Context {
         never, Prisma.RejectOnNotFound | Prisma.RejectPerOperation | undefined
     >;
     userInfo: {
-        userId:number
+        userId: number
     } | null;
 }
 
@@ -20,6 +20,11 @@ const server = new ApolloServer({
     resolvers: {
         Query,
         Mutation,
+    },
+    cors: {
+        origin: ["http://localhost:3000", "https://studio.apollographql.com"],
+        credentials: true
+        
     },
     context: async ({ req }: any): Promise<Context> => {
         // console.log(`atIndexReq:${JSON.stringify(req)}`)
@@ -31,7 +36,7 @@ const server = new ApolloServer({
         // console.log(`afterGetUserFT:${userInfo}`)
         return {
             prisma,
-            userInfo ,
+            userInfo,
         }
     },
 })
