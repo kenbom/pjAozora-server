@@ -16,15 +16,15 @@ export interface Context {
 }
 
 const server = new ApolloServer({
-    typeDefs,
-    resolvers: {
-        Query,
-        Mutation,
-    },
     cors: {
         origin: "*",
         //["http://localhost:3000", "https://studio.apollographql.com"],
         credentials: true,
+    },
+    typeDefs,
+    resolvers: {
+        Query,
+        Mutation,
     },
     context: async ({ req }: any): Promise<Context> => {
         // console.log(`atIndexReq:${JSON.stringify(req)}`)
