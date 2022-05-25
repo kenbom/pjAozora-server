@@ -22,9 +22,9 @@ const server = new ApolloServer({
         Mutation,
     },
     cors: {
-        origin: ["http://localhost:3000", "https://studio.apollographql.com"],
-        credentials: true
-        
+        origin: "*",
+        //["http://localhost:3000", "https://studio.apollographql.com"],
+        credentials: true,
     },
     context: async ({ req }: any): Promise<Context> => {
         // console.log(`atIndexReq:${JSON.stringify(req)}`)
