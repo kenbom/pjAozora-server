@@ -43,7 +43,9 @@ exports.authResolvers = void 0;
 var validator_1 = __importDefault(require("validator"));
 var bcryptjs_1 = __importDefault(require("bcryptjs"));
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-var keys_1 = require("../../keys");
+require('dotenv').config();
+var env = process.env;
+var JSON_SIGNATURE = env.JSON_SIGNATURE;
 exports.authResolvers = {
     signup: function (parent, _a, _b) {
         var credentials = _a.credentials, userName = _a.userName;
@@ -91,7 +93,7 @@ exports.authResolvers = {
                         user = _c.sent();
                         return [2, {
                                 userErrors: [],
-                                token: jsonwebtoken_1.default.sign({ userId: user.id }, keys_1.JSON_SIGNATURE, {
+                                token: jsonwebtoken_1.default.sign({ userId: user.id }, JSON_SIGNATURE, {
                                     expiresIn: 3000
                                 }),
                             }];
@@ -128,7 +130,7 @@ exports.authResolvers = {
                         }
                         return [2, {
                                 userErrors: [],
-                                token: jsonwebtoken_1.default.sign({ userId: user.id }, keys_1.JSON_SIGNATURE, {
+                                token: jsonwebtoken_1.default.sign({ userId: user.id }, JSON_SIGNATURE, {
                                     expiresIn: 3600000
                                 }),
                             }];
